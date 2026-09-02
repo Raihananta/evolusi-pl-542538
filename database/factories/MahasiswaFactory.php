@@ -17,6 +17,7 @@ class MahasiswaFactory extends Factory
             'nim' => $this->faker->unique()->numerify('##########'),
             'nama' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
+            'sks' => $this->faker->numberBetween(0, 24),
         ];
     }
 }

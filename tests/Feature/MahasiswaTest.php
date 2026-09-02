@@ -32,6 +32,7 @@ class MahasiswaTest extends TestCase
             'nim' => '12345678',
             'nama' => 'Citra Dewi',
             'email' => 'citra@mail.ugm.ac.id',
+            'sks' => 20,
         ]);
 
         $response->assertRedirect(route('mahasiswa.index'));
