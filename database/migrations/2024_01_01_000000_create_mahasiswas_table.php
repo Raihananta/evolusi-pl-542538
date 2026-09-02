@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nim', 10)->unique();
             $table->string('nama');
             $table->string('email')->unique();
+            $table->unsignedTinyInteger('sks')->default(0);
             $table->timestamps();
         });
     }
