@@ -7,6 +7,7 @@ Aplikasi web sederhana **Manajemen Data Mahasiswa** berbasis Laravel, dibuat unt
 - Menampilkan daftar mahasiswa
 - Menambahkan data mahasiswa baru
 - Validasi NIM (wajib 8-10 digit angka, unik) dan email (format valid, unik)
+- Mencatat jumlah SKS mahasiswa (0-24) dengan validasi batas maksimal
 
 ## Menjalankan secara lokal
 

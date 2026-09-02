@@ -39,6 +39,7 @@ class MahasiswaController extends Controller
             'nim' => ['required', 'digits_between:8,10', 'unique:mahasiswas,nim'],
             'nama' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'unique:mahasiswas,email'],
+            'sks' => ['required', 'integer', 'min:0', 'max:24'],
         ]);
 
         Mahasiswa::create($validated);

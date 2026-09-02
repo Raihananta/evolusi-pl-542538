@@ -29,6 +29,9 @@
         <label for="email">Email</label><br>
         <input type="email" id="email" name="email" value="{{ old('email') }}"><br><br>
 
+        <label for="sks">Jumlah SKS (0-24)</label><br>
+<input type="number" id="sks" name="sks" value="{{ old('sks') }}"><br><br>
+
         <button type="submit">Simpan</button>
     </form>
 
