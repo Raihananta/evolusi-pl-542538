@@ -70,7 +70,7 @@ class MahasiswaTest extends TestCase
 
         $response->assertSessionHasErrors('nim');
     }
-    
+
     /**
      * Data mahasiswa bisa diperbarui dengan data yang valid.
      */

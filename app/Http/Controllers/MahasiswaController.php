@@ -48,7 +48,7 @@ class MahasiswaController extends Controller
             ->route('mahasiswa.index')
             ->with('success', 'Mahasiswa berhasil ditambahkan.');
     }
-    
+
     /**
      * Tampilkan form edit mahasiswa.
      */
@@ -63,9 +63,9 @@ class MahasiswaController extends Controller
     public function update(Request $request, Mahasiswa $mahasiswa): RedirectResponse
     {
         $validated = $request->validate([
-            'nim' => ['required', 'digits_between:8,10', 'unique:mahasiswas,nim,' . $mahasiswa->id],
+            'nim' => ['required', 'digits_between:8,10', 'unique:mahasiswas,nim,'.$mahasiswa->id],
             'nama' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', 'unique:mahasiswas,email,' . $mahasiswa->id],
+            'email' => ['required', 'email', 'unique:mahasiswas,email,'.$mahasiswa->id],
             'sks' => ['required', 'integer', 'min:0', 'max:24'],
         ]);
 
@@ -75,7 +75,7 @@ class MahasiswaController extends Controller
             ->route('mahasiswa.index')
             ->with('success', 'Data mahasiswa berhasil diperbarui.');
     }
-    
+
     /**
      * Hapus data mahasiswa.
      */
