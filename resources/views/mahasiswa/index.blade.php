@@ -20,6 +20,7 @@
                 <th>Nama</th>
                 <th>Email</th>
                 <th>SKS</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,14 @@
                     <td>{{ $mahasiswa->nama }}</td>
                     <td>{{ $mahasiswa->email }}</td>
                     <td>{{ $mahasiswa->sks }}</td>
+                    <td>
+                        <a href="{{ route('mahasiswa.edit', $mahasiswa) }}">Edit</a>
+                        <form method="POST" action="{{ route('mahasiswa.destroy', $mahasiswa) }}" style="display:inline" onsubmit="return confirm('Yakin hapus data ini?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">Hapus</button>
+                        </form>
+                    </td>
                 </tr>
             @empty
                 <tr>
