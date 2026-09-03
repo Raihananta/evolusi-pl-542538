@@ -70,4 +70,35 @@ class MahasiswaTest extends TestCase
 
         $response->assertSessionHasErrors('nim');
     }
+
+    /**
+     * Data mahasiswa bisa diperbarui dengan data yang valid.
+     */
+    public function test_mahasiswa_bisa_diperbarui(): void
+    {
+        $mahasiswa = Mahasiswa::factory()->create(['nama' => 'Nama Lama']);
+
+        $response = $this->put(route('mahasiswa.update', $mahasiswa), [
+            'nim' => $mahasiswa->nim,
+            'nama' => 'Nama Baru',
+            'email' => $mahasiswa->email,
+            'sks' => 15,
+        ]);
+
+        $response->assertRedirect(route('mahasiswa.index'));
+        $this->assertDatabaseHas('mahasiswas', ['id' => $mahasiswa->id, 'nama' => 'Nama Baru']);
+    }
+
+    /**
+     * Data mahasiswa bisa dihapus.
+     */
+    public function test_mahasiswa_bisa_dihapus(): void
+    {
+        $mahasiswa = Mahasiswa::factory()->create();
+
+        $response = $this->delete(route('mahasiswa.destroy', $mahasiswa));
+
+        $response->assertRedirect(route('mahasiswa.index'));
+        $this->assertDatabaseMissing('mahasiswas', ['id' => $mahasiswa->id]);
+    }
 }
